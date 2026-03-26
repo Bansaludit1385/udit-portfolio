@@ -322,7 +322,7 @@ const projects: Project[] = [
     technologies: ['PHP', 'Dashboard', 'Web Development'],
     github: 'https://github.com/Bansaludit1385/Event-Dashboard-Application',
     demo: '',
-    image: '',
+    image: 'event-dashboard.png',
   },
   {
     id: 2,
@@ -332,7 +332,7 @@ const projects: Project[] = [
     technologies: ['JavaScript', 'React', 'MERN', 'Socket.IO'],
     github: 'https://github.com/Bansaludit1385/Real-Time-Vehicle-Tracking',
     demo: '',
-    image: '',
+    image: 'vehicle-tracking.png',
   },
   {
     id: 3,
@@ -342,7 +342,7 @@ const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript', 'Chatbot'],
     github: 'https://github.com/Bansaludit1385/MoveisMagicChatbot',
     demo: '',
-    image: '',
+    image: 'movies-magic-chatbot.png',
   },
   {
     id: 4,
@@ -352,7 +352,7 @@ const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     github: 'https://github.com/Bansaludit1385',
     demo: '',
-    image: '',
+    image: 'portfolio-website.png',
   },
 ]
 const ProjectCard = ({ project }: { project: Project }) => {
