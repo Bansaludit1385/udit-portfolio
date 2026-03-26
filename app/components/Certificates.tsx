@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaExternalLinkAlt, FaCertificate } from 'react-icons/fa'
+import Image from 'next/image'
 
 type Certificate = {
   id: number
@@ -10,6 +11,7 @@ type Certificate = {
   issuer: string
   date: string
   description: string
+  image: string
   link: string
 }
 
@@ -20,34 +22,38 @@ const certificates: Certificate[] = [
     issuer: 'W3Grads',
     date: 'Jun 2025 – Jul 2025',
     description:
-      'Learned and applied key DSA concepts including recursion, sorting, searching, trees, graphs, and dynamic programming. Solved 100+ DSA exercises to strengthen analytical thinking and coding efficiency.',
+      'Completed intensive DSA training covering recursion, sorting, searching, trees, graphs, and dynamic programming with strong problem-solving practice.',
+    image: 'dsa-certificate.png',
     link: '/certificates/dsa-certificate.pdf',
   },
   {
     id: 2,
-    title: 'NPTEL Certification in Cloud Computing',
+    title: 'Cloud Computing',
     issuer: 'NPTEL',
-    date: '2025',
+    date: 'Jan 2025 – Apr 2025',
     description:
-      'Completed certification in cloud computing covering core concepts such as cloud architecture, virtualization, service models, deployment models, and modern cloud-based application fundamentals.',
+      'Completed NPTEL certification in Cloud Computing, covering cloud architecture, virtualization, service models, and deployment fundamentals.',
+    image: 'cloud-computing-certificate.png',
     link: '/certificates/cloud-computing-certificate.pdf',
   },
   {
     id: 3,
     title: 'Computational Theory: Language Principle & Finite Automata Theory',
-    issuer: 'Infosys',
-    date: '2025',
+    issuer: 'Infosys Springboard',
+    date: 'Aug 21, 2025',
     description:
-      'Completed training in computational theory with focus on formal languages, automata, finite state machines, and language principles essential for theoretical computer science fundamentals.',
+      'Completed course on formal languages, automata, finite state machines, and theoretical computer science foundations.',
+    image: 'computational-theory-certificate.png',
     link: '/certificates/computational-theory-certificate.pdf',
   },
   {
     id: 4,
     title: 'ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM',
-    issuer: 'Infosys',
-    date: '2025',
+    issuer: 'Infosys Springboard',
+    date: 'Aug 21, 2025',
     description:
-      'Completed certification in prompt engineering and generative AI, learning how to effectively work with LLMs, design better prompts, and understand modern AI-assisted workflows.',
+      'Completed certification focused on prompt engineering, generative AI concepts, and practical LLM usage for real-world workflows.',
+    image: 'chatgpt-prompt-engineering-certificate.png',
     link: '/certificates/chatgpt-prompt-engineering-certificate.pdf',
   },
 ]
@@ -55,19 +61,44 @@ const certificates: Certificate[] = [
 const CertificateCard = ({ certificate }: { certificate: Certificate }) => {
   return (
     <motion.div
-      className="card hover:shadow-accent/20 group transition-all duration-500 hover:-translate-y-2 h-full flex flex-col"
+      className="card overflow-hidden hover:shadow-accent/20 group transition-all duration-500 hover:-translate-y-2 h-full flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, margin: '-100px' }}
     >
+      {/* Certificate Image */}
+      <div className="relative overflow-hidden h-52 -mx-6 -mt-6 mb-6 rounded-t-lg bg-white">
+        <Image
+          src={`/certificate-images/${certificate.image}`}
+          alt={certificate.title}
+          fill
+          className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+        />
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+          <motion.a
+            href={certificate.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-secondary p-3 rounded-full text-accent hover:bg-accent hover:text-primary transition-colors duration-300 shadow-md hover:shadow-accent/20"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <FaExternalLinkAlt size={20} />
+          </motion.a>
+        </div>
+      </div>
+
+      {/* Certificate Content */}
       <div className="flex items-start gap-3 mb-4">
         <div className="bg-accent/10 p-3 rounded-full shrink-0">
-          <FaCertificate className="text-accent text-xl" />
+          <FaCertificate className="text-accent text-lg" />
         </div>
 
         <div>
-          <h3 className="text-lg md:text-xl text-text font-semibold group-hover:text-accent transition-colors duration-300 leading-snug">
+          <h3 className="text-lg text-text font-semibold group-hover:text-accent transition-colors duration-300 leading-snug">
             {certificate.title}
           </h3>
           <p className="text-sm text-accent mt-1">
@@ -80,6 +111,7 @@ const CertificateCard = ({ certificate }: { certificate: Certificate }) => {
         {certificate.description}
       </p>
 
+      {/* Button */}
       <motion.a
         href={certificate.link}
         target="_blank"
