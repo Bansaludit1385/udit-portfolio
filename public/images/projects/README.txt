@@ -1,1 +1,1 @@
-Add project screenshots here (1200x675px recommended)
+Add project screenshots here (1200x700px recommended)

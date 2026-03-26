@@ -355,22 +355,23 @@ const projects: Project[] = [
     image: 'portfolio-website.png',
   },
 ]
+
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
-      className="card overflow-hidden hover:shadow-accent/20 group transition-all duration-500 hover:-translate-y-2"
+      className="card overflow-hidden hover:shadow-accent/20 group transition-all duration-500 hover:-translate-y-2 h-full flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, margin: '-100px' }}
     >
-      <div className="relative overflow-hidden h-48 -mx-6 -mt-6 mb-6 rounded-t-lg">
+      <div className="relative overflow-hidden h-52 -mx-6 -mt-6 mb-6 rounded-t-lg bg-secondary">
         {project.image ? (
           <Image
             src={`/projects/${project.image}`}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover brightness-110 contrast-110 group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
@@ -378,7 +379,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
         )}
 
-        <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+        <div className="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
           <div className="flex space-x-4">
             <motion.a
               href={project.github}
@@ -391,7 +392,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <FaGithub size={20} />
             </motion.a>
 
-            {project.demo && (
+            {project.demo && project.demo.trim() !== '' && (
               <motion.a
                 href={project.demo}
                 target="_blank"
@@ -453,7 +454,8 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Here are some of my featured projects that showcase my skills in web development, problem solving, and building real-world applications.
+        Here are some of my featured projects that showcase my skills in web
+        development, problem solving, and building real-world applications.
       </motion.p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
