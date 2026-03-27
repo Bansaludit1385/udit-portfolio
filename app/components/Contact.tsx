@@ -406,8 +406,7 @@
 
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaEnvelope, FaLinkedin, FaGithub, FaDiscord, FaPaperPlane, FaTwitter } from 'react-icons/fa'
-
+import { FaEnvelope, FaLinkedin, FaGithub, FaDiscord, FaPaperPlane, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 type FormState = {
   name: string
   email: string
@@ -628,6 +627,30 @@ const Contact = () => {
                 </div>
                 <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
               </motion.div>
+
+              {/* WhatsApp */}
+<motion.div 
+  variants={itemVariants}
+  className="group relative"
+>
+  <div className="flex items-center space-x-4 relative z-10">
+    <div className="contact-icon group-hover:rotate-12">
+      <FaWhatsapp size={20} className="group-hover:text-white transition-colors" />
+    </div>
+    <div className="transition-transform group-hover:translate-x-2 duration-300 ease-in-out">
+      <p className="text-textLight text-sm">WhatsApp</p>
+      <a
+        href="https://wa.me/916283218686"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text hover:text-accent transition-colors font-medium"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div className="absolute inset-0 bg-accent/5 scale-0 group-hover:scale-100 rounded-lg transition-transform duration-300 ease-in-out -z-0"></div>
+</motion.div>
 
               {/* Discord */}
               <motion.div variants={itemVariants} className="group relative">
