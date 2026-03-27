@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Certificates from './components/Certificates'
+import Achievements from "./components/Achievements"
 import Projects from './components/Projects'
 import Timeline from './components/Timeline'
 import Contact from './components/Contact'
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <Projects />
         <Certificates />
+        <Achievements />
         <Timeline />
         <Contact />
       </div>

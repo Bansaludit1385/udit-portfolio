@@ -308,7 +308,7 @@ const Navbar = () => {
       setScrolled(offset > 50)
 
       if (!clickedSection) {
-        const sections = ['about', 'projects', 'certificates', 'timeline', 'contact']
+        const sections = ['about', 'projects', 'certificates', 'achievements', 'timeline', 'contact']
 
         const currentSection = sections.find((section) => {
           const element = document.getElementById(section)
@@ -333,7 +333,7 @@ const Navbar = () => {
     }
   }, [clickedSection])
 
-  const navItems = ['about', 'projects', 'certificates', 'timeline', 'contact']
+  const navItems = ['about', 'projects', 'certificates', 'achievements', 'timeline', 'contact']
 
   const mobileMenuVariants = {
     closed: {
@@ -366,6 +366,7 @@ const Navbar = () => {
   const getLabel = (item: string) => {
     if (item === 'timeline') return 'Experience'
     if (item === 'certificates') return 'Certificates'
+    if (item === 'achievements') return 'Achievements'
     return item.charAt(0).toUpperCase() + item.slice(1)
   }
 
