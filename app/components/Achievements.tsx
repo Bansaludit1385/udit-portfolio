@@ -30,7 +30,7 @@ const achievements: Achievement[] = [
       "Actively practice data structures and algorithms on LeetCode with consistent problem-solving to improve coding logic, optimization, and interview readiness.",
     date: "Active",
     icon: <FaLaptopCode size={24} />,
-    link: "https://leetcode.com/u/your-leetcode-username/",
+    link: "https://leetcode.com/u/udit1385/",
     linkLabel: "View LeetCode Profile",
   },
   {
