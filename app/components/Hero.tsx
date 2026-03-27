@@ -396,17 +396,16 @@ const Hero = () => {
             <div className="relative w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-accent/80 shadow-2xl shadow-accent/20">
               <div className="relative w-full h-full">
                 <Image 
-                  src="/images/profile.jpg" 
-                  alt="Udit Bansal - Profile Picture"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="transition-transform duration-500 hover:scale-110 filter saturate-[1.15]"
-                  priority
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-                  }}
-                />
+  src="/images/profile.jpg" 
+  alt="Udit Bansal - Profile Picture"
+  fill
+  className="object-cover object-top scale-125 transition-transform duration-500 hover:scale-135 filter saturate-[1.15]"
+  priority
+  onError={(e) => {
+    (e.target as HTMLImageElement).style.display = 'none';
+    (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+  }}
+/>
                 <div className="hidden absolute inset-0 bg-secondary flex items-center justify-center text-accent">
                   <span className="text-xl font-bold">Profile Photo</span>
                 </div>
