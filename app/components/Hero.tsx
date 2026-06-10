@@ -354,7 +354,7 @@ const Hero = () => {
             </motion.a>
 
             <motion.a
-              href="/files/Udit_Bansal_Resume.pdf"
+              href="/files/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-secondary border-2 border-accent/20 text-accent px-6 py-3 rounded font-medium flex items-center gap-2 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10"
